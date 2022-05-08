@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Mist Meals - Menú</title>
+    <link rel="icon" href="img/favicon_mistmeals.png" type="image/png">
+    <style type="text/css">
+        @font-face {
+            font-family: 'CoreSansC35';
+            src: url('./fonts/CoreSansC-35Light.ttf')) format('truetype');
+        }
+        @font-face {
+            font-family: 'CoreSansC65';
+            src: url('./fonts/CoreSansC-65Bold.ttf')) format('truetype');
+        }
+        @font-face {
+            font-family: 'TuskerGrotesk35';
+            src: url('./fonts/TuskerGrotesk-3500Medium.ttf')) format('truetype');
+        }
+        @font-face {
+            font-family: 'TuskerGrotesk65';
+            src: url('./fonts/TuskerGrotesk-6500Medium.ttf')) format('truetype');
+        }
+        @page {
+            margin: 0;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+
+        body {
+            font-family: 'CoreSansC35', sans-serif;
+            background-color: #000000;
+            color: #F9F2E1;
+            padding: 50px;
+            max-height: 479px;
+            min-height: 479px;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        img.claim {
+            position: absolute;
+            top: 100px;
+            left: 170px;
+            width: 350px;
+            height: 590px;
+        }
+        img.tag {
+            position: absolute;
+            top: -50px;
+            left: -80px;
+            width: 400px;
+            z-index: 9999;
+        }
+        img.tag-bottom {
+            position: absolute;
+            top: auto;
+            bottom: 0px;
+            right: -100px;
+            width: 200px;
+            z-index: 9999;
+        }
+        .top .user {
+            font-family: 'CoreSansC35', sans-serif;
+            font-size: 6pt;
+            position: absolute;
+            top: 80px;
+            right: 160px;
+            padding: 15px 25px;
+            border: 1px solid #F9F2E1;
+            width: 140px;
+        }
+        .top .user .bold {
+            font-family: 'CoreSansC65', sans-serif;
+        }
+        .top img.logo {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            top: 80px;
+            right: 60px;
+        }
+        .middle {
+            position: relative;
+            top: 140px;
+            z-index: 999;
+        }
+        .middle table, .middle th, .middle td {
+            border: 1px solid #F9F2E1;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .middle td {
+            width: 80px;
+        }
+        .middle th, .middle td {
+            padding: 0 5px;
+        }
+        .middle table .table-title {
+            font-family: 'TuskerGrotesk35', sans-serif;
+            font-size: 8pt;
+            padding: 10px 20px;
+        }
+        .middle table .table-content {
+            font-family: 'CoreSansC35', sans-serif;
+            font-size: 6.5pt;
+        }
+        .middle table .table-content.table-food {
+            padding: 10px 20px;
+            font-size: 5pt;
+        }
+        .middle table .table-content img {
+            width: 45px;
+            height: 45px;
+            margin-bottom: 10px;
+        }
+        .middle table .table-result {
+            font-family: 'TuskerGrotesk65', sans-serif;
+            font-size: 13pt;
+        }
+        .middle table tr:first-child td:nth-child(1) {
+            border-top: 1px solid #000000;
+            border-left: 1px solid #000000;
+        }
+        .middle .info {
+            font-family: 'CoreSansC35', sans-serif;
+            font-size: 7pt;
+            margin-top: 10px;
+        }
+        .middle .info p {
+            padding: 0;
+            margin: 0;
+        }
+        .first-page-data{
+          position: absolute;
+          top: 400px;
+          left: 550px;
+        }
+        .description{
+          margin-left: 50px;
+        }
+        .cal-number{
+          font-family: TuskerGrotesk35;
+          font-size: 60px;
+        }
+        .cal-text{
+          position: absolute;
+          left: 140px;
+          top: 105px;
+          font-family: CoreSansC65;
+          font-size: 25px;
+          width: 275px;
+        }
+    </style>
+</head>
+
+<body>
+  <img class="tag" src="data:image/png;base64,{{imgs.Born_this_weight_Do_Better_Mistmeas}}" alt="Img" />
+<div class="top">
+    <div class="user">
+        <ul>
+          <li><span class="bold">Nombre:</span> {{nombre}}</li>
+          <li><span class="bold">Peso (kg):</span> {{peso}}</li>
+          <li><span class="bold">Altura (cm):</span> {{altura}}</li>
+          <li><span class="bold">Edad (años):</span> {{edad}}</li>
+          <li><span class="bold">Sexo:</span> {{sexo}}</li>
+          <li><span class="bold">Nivel de ejercicio:</span> {{nivel_ejercicio}}</li>
+          {{#ifCond objetivo "===" 'mantener'}}
+          <li><span class="bold">Objetivo:</span> Comer rico y saludable</li>
+          {{/ifCond}}
+          {{#ifCond objetivo "===" 'ganar'}}
+          <li><span class="bold">Objetivo:</span> Ganancia muscular</li>
+          {{/ifCond}}
+          {{#ifCond objetivo "===" 'perder'}}
+          <li><span class="bold">Objetivo:</span> Control de calorías</li>
+          {{/ifCond}}
+        </ul>
+    </div>
+    <img class="logo" src="data:image/png;base64,{{imgs.keeper_logo}}"/>
+</div>
+<div class="middle">
+    <table>
+        <tr>
+            <td></td>
+            <td class="table-title">Día 1</td>
+            <td class="table-title">Día 2</td>
+            <td class="table-title">Día 3</td>
+            <td class="table-title">Día 4</td>
+            <td class="table-title">Día 5</td>
+            <td class="table-title">Día 6</td>
+            <td class="table-title">Día 7</td>
+        </tr>
+        <tr>
+            <td class="table-title">COMIDA</td>
+            <td class="table-content table-food">
+              <div><img src="{{imagenes_comida.i0}}"></div>
+              <div>{{comida.i0.x0.post_title}}</div>
+            </td>
+            <td class="table-content table-food">
+              <div><img src="{{imagenes_comida.i1}}"></div>
+              <div>{{comida.i1.x0.post_title}}</div>
+            </td>
+            <td class="table-content table-food">
+              <div><img src="{{imagenes_comida.i2}}"></div>
+              <div>{{comida.i2.x0.post_title}}</div>
+            </td>
+            <td class="table-content table-food">
+              <div><img src="{{imagenes_comida.i3}}"></div>
+              <div>{{comida.i3.x0.post_title}}</div>
+            </td>
+            <td class="table-content table-food">
+              <div><img src="{{imagenes_comida.i4}}"></div>
+              <div>{{comida.i4.x0.post_title}}</div>
+            </td>
+            <td class="table-content table-food">
+              <div><img src="{{imagenes_comida.i5}}"></div>
+              <div>{{comida.i5.x0.post_title}}</div>
+            </td>
+            <td class="table-content table-food">
+              <div><img src="{{imagenes_comida.i6}}"></div>
+              <div>{{comida.i6.x0.post_title}}</div>
+            </td>
+        </tr>
+        <tr>
+          <td class="table-title">CENA</td>
+          <td class="table-content table-food">
+            <div><img src="{{imagenes_cena.i0}}"></div>
+            <div>{{cena.i0.x0.post_title}}</div>
+          </td>
+          <td class="table-content table-food">
+            <div><img src="{{imagenes_cena.i1}}"></div>
+            <div>{{cena.i1.x0.post_title}}</div>
+          </td>
+          <td class="table-content table-food">
+            <div><img src="{{imagenes_cena.i2}}"></div>
+            <div>{{cena.i2.x0.post_title}}</div>
+          </td>
+          <td class="table-content table-food">
+            <div><img src="{{imagenes_cena.i3}}"></div>
+            <div>{{cena.i3.x0.post_title}}</div>
+          </td>
+          <td class="table-content table-food">
+            <div><img src="{{imagenes_cena.i4}}"></div>
+            <div>{{cena.i4.x0.post_title}}</div>
+          </td>
+          <td class="table-content table-food">
+            <div><img src="{{imagenes_cena.i5}}"></div>
+            <div>{{cena.i5.x0.post_title}}</div>
+          </td>
+          <td class="table-content table-food">
+            <div><img src="{{imagenes_cena.i6}}"></div>
+            <div>{{cena.i6.x0.post_title}}</div>
+          </td>
+        </tr>
+        <tr>
+            <td class="table-title">TOTAL KCAL</td>
+            <td class="table-result">{{total.i0}}</td>
+            <td class="table-result">{{total.i1}}</td>
+            <td class="table-result">{{total.i2}}</td>
+            <td class="table-result">{{total.i3}}</td>
+            <td class="table-result">{{total.i4}}</td>
+            <td class="table-result">{{total.i5}}</td>
+            <td class="table-result">{{total.i6}}</td>
+        </tr>
+        <tr>
+            <td class="table-title">RESTO*</td>
+            <td class="table-result">{{resto.i0}}</td>
+            <td class="table-result">{{resto.i1}}</td>
+            <td class="table-result">{{resto.i2}}</td>
+            <td class="table-result">{{resto.i3}}</td>
+            <td class="table-result">{{resto.i4}}</td>
+            <td class="table-result">{{resto.i5}}</td>
+            <td class="table-result">{{resto.i6}}</td>
+        </tr>
+    </table>
+    <div class="info">
+        <p>*Se recomienda completar las calorías con el desayuno y un almuerzo.</p>
+        <p>**Se recomienda tomar algún complemento alimentario para completar las calorías requeridas.</p>
+    </div>
+</div>
+</body>
+</html>
